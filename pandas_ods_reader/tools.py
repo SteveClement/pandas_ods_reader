@@ -1,5 +1,6 @@
 """Provides utility functions for the parser"""
 
+import ezodf
 
 def ods_info(doc):
     """Prints the number of sheets, their names, and number of rows and columns
