@@ -4,6 +4,11 @@
 def ods_info(doc):
     """Prints the number of sheets, their names, and number of rows and columns
     """
+    try:
+        type(doc) is ezodf.document.PackageDocument
+    except AttributeError:
+        doc = ezodf.opendoc(doc)
+
     print("Spreadsheet contains %d sheet(s)." % len(doc.sheets))
     for sheet in doc.sheets:
         print("-"*40)
