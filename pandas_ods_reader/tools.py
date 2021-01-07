@@ -3,7 +3,7 @@
 import ezodf
 import json
 
-def ods_info(doc, json=False, nameOnly=False):
+def ods_info(doc, json_fmt=False, nameOnly=False):
     """Prints the number of sheets, their names, and number of rows and columns
     """
     doc = check_ezodf_obj(doc)
@@ -16,22 +16,22 @@ def ods_info(doc, json=False, nameOnly=False):
             sheet.nrows(), sheet.ncols()))
 
 
-def ods_sheet_names(doc, json=False):
+def ods_sheet_names(doc, json_fmt=False):
     """Prints the name of sheets
     """
     doc = check_ezodf_obj(doc)
 
-    if not json:
+    if not json_fmt:
         print("Spreadsheet contains %d sheet(s)." % len(doc.sheets))
         for sheet in doc.sheets:
             print("-"*40)
             print("   Sheet name : '%s'" % sheet.name)
 
-    if json:
+    if json_fmt:
         sheets = []
         for sheet in doc.sheets:
             sheets.append(sheet.name)
-        return json.dumps(json)
+        return json.dumps(sheets)
 
 
 def check_ezodf_obj(doc):
