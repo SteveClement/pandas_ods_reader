@@ -30,7 +30,7 @@ def ods_sheet_names(doc, json=False):
     if json:
         sheets = []
         for sheet in doc.sheets:
-            sheets.append(doc.name)
+            sheets.append(sheet.name)
         return json.dumps(json)
 
 
